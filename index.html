@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Hit Roulette</title>
+<meta name="theme-color" content="#12101B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="topbar__dot"></span>
+      <h1>HIT ROULETTE</h1>
+    </div>
+    <button id="btnVideoToggle" class="iconbtn" title="Mostrar/ocultar vídeo" aria-label="Mostrar u ocultar vídeo">👁️</button>
+  </header>
+
+  <main class="stage">
+
+    <div class="wheelWrap">
+      <div class="wheelPointer"></div>
+      <svg id="wheel" class="wheel" viewBox="0 0 400 400"></svg>
+      <button id="btnSpin" class="hub">
+        <span id="hubLabel">GIRAR</span>
+      </button>
+    </div>
+
+    <section id="resultCard" class="resultCard hidden">
+      <div class="resultCard__badge" id="resultBadge">Categoría</div>
+      <p class="resultCard__prompt" id="resultPrompt">Prueba a resolver</p>
+    </section>
+
+    <section id="playerCard" class="playerCard hidden">
+      <div class="playerCard__row">
+        <div id="ytPlayer" class="ytPlayer"></div>
+        <div class="playerCard__status" id="playerStatus">Buscando canción…</div>
+      </div>
+
+      <div class="playerCard__controls">
+        <button id="btnPlayPause" class="btn btn--ghost" disabled>▶️ Reproducir</button>
+        <button id="btnReplay" class="btn btn--ghost" disabled>⟲ Otra vez</button>
+      </div>
+
+      <button id="btnReveal" class="btn btn--reveal" disabled>Mostrar respuesta 🔎</button>
+      <div id="answerBox" class="answerBox hidden"></div>
+    </section>
+
+    <button id="btnNewSong" class="btn btn--primary hidden">🎲 Nueva canción</button>
+
+  </main>
+
+  <footer class="footer">
+    <p>Gira → escucha 15s → adivina la prueba de la categoría. La respuesta se oculta hasta que la revelas.</p>
+  </footer>
+
+</div>
+
+<div id="apiWarning" class="apiWarning hidden">
+  ⚠️ Falta tu API key de YouTube en <code>config.js</code>. Edita el archivo y pon la tuya.
+</div>
+
+<script src="categories.js"></script>
+<script src="songs.js"></script>
+<script src="config.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="script.js"></script>
+</body>
+</html>
